@@ -30,6 +30,15 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+    Route::get('/api-overview','ApiController@index');
+
+    Route::get('/api-create','ApiController@apiCreateForm');
+    Route::get('/api-update','ApiController@apiUpdateForm');
+    Route::get('/api-delete','ApiController@apiDelete');
+
+    Route::get('/api-view','ApiController@apiView');    
+
+    Route::post('/api-create','ApiController@apiCreate');
 });
 
 Route::group(['prefix' => 'api/v1','middleware' => 'apiauth'], function () {

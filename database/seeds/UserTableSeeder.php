@@ -16,7 +16,6 @@ class UserTableSeeder extends Seeder
 	        'name'     	  => 'Lee Zerafa',
 	        'email'    	  => 'lee@api.com',
 	        'password' 	  => Hash::make('abc123'),
-	        'api_key'	  => Hash::make('key'),
 	        'user_key'	  => Hash::make('lee@api.com'),
             'user_status' => 1,
 	    ));

@@ -29,12 +29,13 @@ class ApiAuthenticate
 
     		//query db based on user key
     		$userData = DB::table('users')->where('user_key', $userKey)->first();
+            $ApiData = DB::table('api')->where('user_id', $userData->id)->first();
 
     		//process the auth attempt
-    		if(!empty($userData)){
+    		if(!empty($userData) && !empty($ApiData)){
 
     			$userStatus = $userData->user_status;
-    			$userApiKey = $userData->api_key;
+    			$userApiKey = $ApiData->api_key;
 
     			if($userStatus === 1)
     			{

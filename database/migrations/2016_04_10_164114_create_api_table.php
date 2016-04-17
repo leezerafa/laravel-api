@@ -3,21 +3,21 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApiDataTable extends Migration
+class CreateApiTable extends Migration
 {
-    /**
+   /**
      * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('api_data', function (Blueprint $table) {
+        Schema::create('api', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('api_id');
-            $table->string('table_name',50);
-            $table->text('table_data');
-            $table->integer('table_status');
+            $table->integer('user_id');
+            $table->string('api_name',50);
+            $table->string('api_key',255);
+            $table->integer('api_status');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateApiDataTable extends Migration
      */
     public function down()
     {
-        Schema::drop('api_data');
+        Schema::drop('api');
     }
 }

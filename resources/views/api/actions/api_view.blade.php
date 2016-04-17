@@ -5,10 +5,13 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
+                <div class="panel-heading">API - {{ $apiName }}</div>
                 <div class="panel-body">
-                    <a href="/api-overview">View Api</a>
+                  <ul>
+                  	<li>API Name - {{ $apiName }}</li>
+                  	<li>API Key - {{ $apiKey }}</li>
+                  	<li>API Status - {{ $apiStatus }}</li>
+                  </ul>
                 </div>
             </div>
         </div>
