@@ -26,6 +26,7 @@ Route::get('/', function () {
 |
 */
 
+//logged in user routes
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
@@ -34,13 +35,17 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/api-create','ApiController@apiCreateForm');
     Route::get('/api-update','ApiController@apiUpdateForm');
-    Route::get('/api-delete','ApiController@apiDelete');
-
-    Route::get('/api-view','ApiController@apiView');    
+    Route::get('/api-delete/{id}','ApiController@apiDelete');
+    
+    Route::get('/api-view/{id}','ApiController@apiView'); 
+    // Route::get('/api-view','ApiController@apiView');    
 
     Route::post('/api-create','ApiController@apiCreate');
+
+    Route::get('/api-bin','ApiController@apiBin'); 
 });
 
+//api routes
 Route::group(['prefix' => 'api/v1','middleware' => 'apiauth'], function () {
     //the api get request
     Route::get('get', 'ReturnApiData@get');

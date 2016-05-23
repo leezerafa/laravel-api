@@ -6,7 +6,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
-
+@include('flash::message')
                 <div class="panel-body">
                     API OVERVIEW
                         <?php 
@@ -17,7 +17,7 @@
                         else{
                             foreach($ApiInfoArray as $Api){
 
-                                echo '<h3>'.$Api['api_title'].'</h3>';
+                                echo '<h3>'.$Api['api_title'].' - <a href="/api-view/'.$Api['id'].'">View</a> | Edit | <a href="/api-delete/'.$Api['id'].'">Delete</a></h3>  ';
                             
                                 if(empty($Api['api_data'])){
                                  echo '<p>No Tables Found - <a href="/api-data-create/">Create Table</a></p>';
